@@ -10,196 +10,104 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html, body {
       margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
+      min-height: 100%;
     }
 
     body {
-      background: #071c16;
-      color: #c5e8d8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #10251d;
+      color: #c9e3d5;
       font-family: Arial, Helvetica, sans-serif;
     }
 
-    /* FOREST */
-
-    .forest {
-      position: fixed;
-      inset: -15%;
-      background:
-        radial-gradient(
-          ellipse at 50% 65%,
-          rgba(40, 91, 70, 0.35),
-          transparent 45%
-        ),
-        linear-gradient(
-          to bottom,
-          #071c16 0%,
-          #0a241b 55%,
-          #061711 100%
-        );
-      animation: camera 14s ease-out forwards;
-    }
-
-    .tree {
-      position: absolute;
-      bottom: -5%;
-      width: 12vw;
-      min-width: 90px;
-      max-width: 180px;
-      height: 110%;
-      background: #04120e;
-      clip-path: polygon(
-        48% 0,
-        56% 0,
-        61% 30%,
-        100% 100%,
-        0 100%,
-        39% 30%
-      );
-      opacity: 0.8;
-    }
-
-    .tree:nth-child(1) { left: -5%; transform: scale(1.4); }
-    .tree:nth-child(2) { left: 12%; transform: scale(0.8); opacity: 0.55; }
-    .tree:nth-child(3) { left: 27%; transform: scale(1.25); }
-    .tree:nth-child(4) { right: 24%; transform: scale(0.75); opacity: 0.5; }
-    .tree:nth-child(5) { right: 8%; transform: scale(1.3); }
-    .tree:nth-child(6) { right: -5%; transform: scale(1.6); }
-
-    /* CONTENT */
-
     main {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       text-align: center;
-      z-index: 2;
-      animation: arrival 3s ease-out forwards;
+      padding: 40px 24px;
     }
 
     .morel {
+      width: 42px;
+      height: 58px;
+      margin: 0 auto 24px;
       position: relative;
-      width: 52px;
-      height: 68px;
-      margin-bottom: 30px;
-      filter: drop-shadow(0 0 12px rgba(197, 232, 216, 0.12));
     }
 
-    .morel-cap {
+    .cap {
       position: absolute;
       left: 5px;
-      top: 3px;
-      width: 42px;
-      height: 48px;
-      border: 2px solid #c5e8d8;
-      border-radius: 48% 48% 42% 42%;
-      background: #173d2e;
+      top: 2px;
+      width: 32px;
+      height: 40px;
+      background: #c9e3d5;
       clip-path: polygon(
         50% 0,
-        67% 8%,
-        76% 23%,
-        67% 35%,
-        79% 48%,
-        67% 61%,
-        78% 76%,
-        61% 91%,
+        72% 12%,
+        60% 25%,
+        76% 38%,
+        60% 51%,
+        75% 65%,
+        58% 80%,
         50% 100%,
-        39% 91%,
-        22% 76%,
-        33% 61%,
-        21% 48%,
-        33% 35%,
-        24% 23%,
-        33% 8%
+        42% 80%,
+        25% 65%,
+        40% 51%,
+        24% 38%,
+        40% 25%,
+        28% 12%
       );
     }
 
-    .morel-stem {
+    .stem {
       position: absolute;
-      left: 18px;
-      top: 45px;
-      width: 17px;
-      height: 21px;
-      border: 2px solid #c5e8d8;
-      border-top: 0;
-      border-radius: 0 0 7px 7px;
-      background: #0c281e;
+      left: 15px;
+      top: 38px;
+      width: 13px;
+      height: 18px;
+      background: #c9e3d5;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.3rem, 7vw, 5.5rem);
-      font-weight: 700;
-      letter-spacing: 0.035em;
-      line-height: 0.95;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      line-height: 1;
     }
 
     p {
-      margin: 22px 0 0;
-      font-size: 0.85rem;
-      font-weight: 400;
-      letter-spacing: 0.16em;
-      opacity: 0.7;
+      margin: 18px 0 0;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      opacity: 0.65;
     }
 
     footer {
       position: fixed;
-      bottom: 20px;
+      bottom: 18px;
       width: 100%;
       text-align: center;
-      z-index: 3;
       font-size: 0.65rem;
-      letter-spacing: 0.1em;
       opacity: 0.35;
-    }
-
-    @keyframes camera {
-      from {
-        transform: scale(1.25) translateY(4%);
-      }
-      to {
-        transform: scale(1) translateY(0);
-      }
-    }
-
-    @keyframes arrival {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="forest" aria-hidden="true">
-    <div class="tree"></div>
-    <div class="tree"></div>
-    <div class="tree"></div>
-    <div class="tree"></div>
-    <div class="tree"></div>
-    <div class="tree"></div>
-  </div>
-
   <main>
     <div class="morel" aria-hidden="true">
-      <div class="morel-cap"></div>
-      <div class="morel-stem"></div>
+      <div class="cap"></div>
+      <div class="stem"></div>
     </div>
 
     <h1>GOOD MOREL GAMES</h1>
+
     <p>INDEPENDENT GAME STUDIO</p>
   </main>
 
